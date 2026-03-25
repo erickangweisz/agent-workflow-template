@@ -57,6 +57,8 @@ Esto reduce improvisacion, mejora la calidad y hace el proceso exportable entre 
 powershell -ExecutionPolicy Bypass -File scripts/install-into-project.ps1 -TargetPath "C:\ruta\a\otro-proyecto"
 ```
 
+Importante: ejecuta el script desde el repo plantilla, no desde el proyecto destino.
+
 Eso copia en el proyecto destino:
 
 - `agents/`

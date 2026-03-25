@@ -10,6 +10,10 @@ if (-not $target) {
   $target = Resolve-Path $TargetPath
 }
 
+if ($sourceRoot.Path -eq $target.Path) {
+  Write-Error "El script se esta ejecutando desde el mismo proyecto destino. Ejecutalo desde el repo plantilla."
+}
+
 $dirs = @(
   'agents',
   '.vscode',
