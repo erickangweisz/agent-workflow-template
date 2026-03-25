@@ -39,6 +39,7 @@ Esto reduce improvisacion, mejora la calidad y hace el proceso exportable entre 
 - `scripts/install-into-project.ps1`: script para copiar la plantilla a otro repo
 - `examples/codex.md`: nota de integracion con Codex
 - `examples/copilot.md`: nota de integracion con Copilot
+- `codex-skills/multi-agent-architect-workflow/`: skill especifica de Codex basada en esta plantilla
 
 ## Integracion rapida en cualquier maquina
 
@@ -104,6 +105,10 @@ Esa task:
 - carga el bootstrap del Arquitecto
 - fuerza `gpt-5.4`
 
+Ademas, este repo ya incluye una primera skill de Codex en:
+
+- `codex-skills/multi-agent-architect-workflow/`
+
 Importante:
 
 - esta automatizacion aplica a Codex
@@ -131,5 +136,6 @@ Mantener aqui una unica fuente de verdad para:
 - bootstrap
 - plantillas de handoff
 - tareas y scripts de apoyo
+- skill especifica de Codex
 
 Y luego crear adaptadores especificos por herramienta cuando haga falta.
