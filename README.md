@@ -35,6 +35,7 @@ Esto reduce improvisacion, mejora la calidad y hace el proceso exportable entre 
 - `agents/handoff-architect-to-frontend.md`: plantilla de delegacion a Frontend
 - `agents/handoff-architect-to-qa.md`: plantilla de delegacion a QA
 - `.vscode/tasks.json`: tareas reutilizables para VS Code
+- `scripts/start-architect-session.ps1`: arranque automatico del Arquitecto en Codex
 - `scripts/install-into-project.ps1`: script para copiar la plantilla a otro repo
 - `examples/codex.md`: nota de integracion con Codex
 - `examples/copilot.md`: nota de integracion con Copilot
@@ -46,7 +47,8 @@ Esto reduce improvisacion, mejora la calidad y hace el proceso exportable entre 
 1. Clona este repo en tu maquina
 2. Copia o instala la plantilla en tu proyecto destino
 3. Abre el proyecto en VS Code
-4. Usa el contenido de `agents/bootstrap.md` como punto de arranque del flujo
+4. Si usas Codex, ejecuta la task `Agent Flow: Start Architect Session`
+5. Si usas Copilot u otra herramienta, usa `agents/bootstrap.md` como punto de entrada
 
 ### Opcion 2. Instalarla dentro de otro proyecto
 
@@ -59,6 +61,7 @@ Eso copia en el proyecto destino:
 - `agents/`
 - `.vscode/`
 - `examples/`
+- `scripts/`
 - una copia del README como `AGENT_WORKFLOW_TEMPLATE.md`
 
 ## Flujo recomendado
@@ -88,11 +91,37 @@ Ejemplo:
 
 ### Codex
 
-Puede arrancarse una sesion nueva con el bootstrap del Arquitecto como prompt inicial.
+Codex si permite forzar el modelo desde el arranque de una sesion nueva. Esta plantilla ya incluye una task para ello:
+
+1. `Ctrl+Shift+P`
+2. `Tasks: Run Task`
+3. `Agent Flow: Start Architect Session`
+
+Esa task:
+
+- localiza `codex.exe`
+- abre una sesion nueva
+- carga el bootstrap del Arquitecto
+- fuerza `gpt-5.4`
+
+Importante:
+
+- esta automatizacion aplica a Codex
+- arranca una sesion nueva
+- no convierte automaticamente un chat ya abierto en el panel lateral
 
 ### Copilot
 
-No tiene el mismo concepto nativo de skill que Codex, pero esta plantilla se puede usar como base de prompts y handoffs.
+Copilot no expone el mismo mecanismo para forzar un modelo desde el propio repo o desde una task local de esta manera.
+
+Por tanto, en Copilot esta plantilla sirve para:
+
+- definir el flujo
+- reutilizar roles
+- reutilizar handoffs
+- mantener prompts consistentes
+
+Pero no puede garantizar por si sola el modelo exacto del Arquitecto. Si Copilot permite cambiarlo, eso tendra que hacerse desde la propia interfaz o configuracion de Copilot.
 
 ## Recomendacion de mantenimiento
 
