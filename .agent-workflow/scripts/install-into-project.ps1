@@ -34,10 +34,10 @@ if (Test-Path $templateTasks) {
   Copy-Item -Force $templateTasks $rootTasks
 }
 
-# Copy README as a single entry point
+# Copy README as a single entry point (inside .agent-workflow)
 $templateReadme = Join-Path (Split-Path $sourceRoot -Parent) 'README.md'
 if (Test-Path $templateReadme) {
-  Copy-Item $templateReadme (Join-Path $targetRoot 'AGENT_WORKFLOW_TEMPLATE.md') -Force
+  Copy-Item $templateReadme (Join-Path $targetAgentRoot 'AGENT_WORKFLOW_TEMPLATE.md') -Force
 }
 
 # Fix accidental nesting if the script is run from the target or an existing bad state

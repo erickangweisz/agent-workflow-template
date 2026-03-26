@@ -57,7 +57,7 @@ Eso copia en el proyecto destino:
 
 - `.agent-workflow/`
 - `.vscode/tasks.json`
-- una copia del README como `AGENT_WORKFLOW_TEMPLATE.md`
+- una copia del README como `.agent-workflow/AGENT_WORKFLOW_TEMPLATE.md`
 
 Sugerencia: si no quieres versionar esto en tu repo, añade `.agent-workflow/` a tu `.gitignore`.
 
