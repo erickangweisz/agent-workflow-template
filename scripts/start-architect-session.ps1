@@ -55,5 +55,6 @@ Write-Host 'Sesion de Architect lanzada con gpt-5.4.' -ForegroundColor Green
 Write-Host "Proyecto: $projectRoot"
 Write-Host "Codex: $codex"
 Write-Host ''
+Write-Host 'Hola, el workflow de multiagentes esta activado, estas hablando con el Arquitecto.' -ForegroundColor Cyan
 Write-Host 'Escribe tu prompt aqui mismo. Esta terminal es la sesion.' -ForegroundColor Cyan
 & $codex @args

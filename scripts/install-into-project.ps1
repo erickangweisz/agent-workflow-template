@@ -39,6 +39,23 @@ if (Test-Path $nestedScripts) {
   Remove-Item -Recurse -Force $nestedScripts
 }
 
+$nestedVscode = Join-Path $target '.vscode\.vscode'
+if (Test-Path $nestedVscode) {
+  Get-ChildItem -Path $nestedVscode -File | ForEach-Object {
+    Move-Item -Force $_.FullName (Join-Path $target '.vscode')
+  }
+  Remove-Item -Recurse -Force $nestedVscode
+}
+
+# Ensure tasks.json exists in root .vscode
+$rootTasks = Join-Path $target '.vscode\tasks.json'
+if (-not (Test-Path $rootTasks)) {
+  $templateTasks = Join-Path $sourceRoot '.vscode\tasks.json'
+  if (Test-Path $templateTasks) {
+    Copy-Item -Force $templateTasks $rootTasks
+  }
+}
+
 Write-Host ''
 Write-Host 'Plantilla multiagente copiada en:' -ForegroundColor Green
 Write-Host $target
