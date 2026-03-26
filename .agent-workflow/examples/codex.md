@@ -9,7 +9,7 @@ Si quieres automatizar el arranque en Codex, ejecuta la task del proyecto:
 Esa task:
 
 - localiza `codex.exe`
-- lee `agents/bootstrap.md`
+- lee `.agent-workflow/agents/bootstrap.md`
 - abre una sesion nueva
 - fuerza `gpt-5.4` para el Arquitecto
 

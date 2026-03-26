@@ -28,17 +28,11 @@ Esto reduce improvisacion, mejora la calidad y hace el proceso exportable entre 
 
 ## Estructura
 
-- `agents/architect.md`: rol del Arquitecto
-- `agents/frontend.md`: rol del implementador Frontend
-- `agents/qa.md`: rol del tester
-- `agents/bootstrap.md`: arranque del flujo
-- `agents/handoff-architect-to-frontend.md`: plantilla de delegacion a Frontend
-- `agents/handoff-architect-to-qa.md`: plantilla de delegacion a QA
-- `.vscode/tasks.json`: tareas reutilizables para VS Code
-- `scripts/start-architect-session.ps1`: arranque automatico del Arquitecto en Codex
-- `scripts/install-into-project.ps1`: script para copiar la plantilla a otro repo
-- `examples/codex.md`: nota de integracion con Codex
-- `examples/copilot.md`: nota de integracion con Copilot
+- `.agent-workflow/agents/`: roles y handoffs
+- `.agent-workflow/scripts/`: scripts de arranque e instalacion
+- `.agent-workflow/examples/`: notas de uso
+- `.agent-workflow/tasks.json`: tareas VS Code (se copian a `.vscode/tasks.json`)
+- `.vscode/tasks.json`: launcher minimo para VS Code
 - `codex-skills/multi-agent-architect-workflow/`: skill especifica de Codex basada en esta plantilla
 
 ## Integracion rapida en cualquier maquina
@@ -49,7 +43,7 @@ Esto reduce improvisacion, mejora la calidad y hace el proceso exportable entre 
 2. Copia o instala la plantilla en tu proyecto destino
 3. Abre el proyecto en VS Code
 4. Si usas Codex, ejecuta la task `Agent Flow: Start Architect Session`
-5. Si usas Copilot u otra herramienta, usa `agents/bootstrap.md` como punto de entrada
+5. Si usas Copilot u otra herramienta, usa `.agent-workflow/agents/bootstrap.md` como punto de entrada
 
 ### Opcion 2. Instalarla dentro de otro proyecto
 
@@ -61,11 +55,11 @@ Importante: ejecuta el script desde el repo plantilla, no desde el proyecto dest
 
 Eso copia en el proyecto destino:
 
-- `agents/`
-- `.vscode/`
-- `examples/`
-- `scripts/`
+- `.agent-workflow/`
+- `.vscode/tasks.json`
 - una copia del README como `AGENT_WORKFLOW_TEMPLATE.md`
+
+Sugerencia: si no quieres versionar esto en tu repo, añade `.agent-workflow/` a tu `.gitignore`.
 
 ## Flujo recomendado
 

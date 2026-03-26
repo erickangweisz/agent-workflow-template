@@ -4,6 +4,10 @@
     {
       "label": "Agent Flow: Start Architect Session",
       "type": "shell",
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
       "command": "powershell",
       "args": [
         "-ExecutionPolicy",
@@ -22,7 +26,7 @@
         "-ExecutionPolicy",
         "Bypass",
         "-Command",
-        "$out='tmp\\frontend-handoff-' + (Get-Date -Format yyyyMMdd-HHmmss) + '.md'; New-Item -ItemType Directory -Force tmp | Out-Null; Copy-Item agents/handoff-architect-to-frontend.md $out; Write-Host $out"
+        "$out='tmp\\frontend-handoff-' + (Get-Date -Format yyyyMMdd-HHmmss) + '.md'; New-Item -ItemType Directory -Force tmp | Out-Null; Copy-Item .agent-workflow/agents/handoff-architect-to-frontend.md $out; Write-Host $out"
       ],
       "problemMatcher": []
     },
@@ -34,7 +38,7 @@
         "-ExecutionPolicy",
         "Bypass",
         "-Command",
-        "$out='tmp\\qa-handoff-' + (Get-Date -Format yyyyMMdd-HHmmss) + '.md'; New-Item -ItemType Directory -Force tmp | Out-Null; Copy-Item agents/handoff-architect-to-qa.md $out; Write-Host $out"
+        "$out='tmp\\qa-handoff-' + (Get-Date -Format yyyyMMdd-HHmmss) + '.md'; New-Item -ItemType Directory -Force tmp | Out-Null; Copy-Item .agent-workflow/agents/handoff-architect-to-qa.md $out; Write-Host $out"
       ],
       "problemMatcher": []
     }
