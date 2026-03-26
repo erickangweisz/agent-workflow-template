@@ -51,7 +51,9 @@ $args = @(
   $prompt
 )
 
-Start-Process -FilePath $codex -WorkingDirectory $projectRoot -ArgumentList $args
 Write-Host 'Sesion de Architect lanzada con gpt-5.4.' -ForegroundColor Green
 Write-Host "Proyecto: $projectRoot"
 Write-Host "Codex: $codex"
+Write-Host ''
+Write-Host 'Escribe tu prompt aqui mismo. Esta terminal es la sesion.' -ForegroundColor Cyan
+& $codex @args

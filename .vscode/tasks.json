@@ -8,6 +8,7 @@
       "args": [
         "-ExecutionPolicy",
         "Bypass",
+        "-NoExit",
         "-File",
         "scripts/start-architect-session.ps1"
       ],
