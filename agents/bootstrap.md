@@ -3,6 +3,8 @@
 Usa este texto como punto de arranque del flujo multiagente.
 
 ```text
+Usa $multi-agent-architect-workflow.
+
 Actua como Arquitecto de Software principal.
 
 Usa el siguiente flujo:

@@ -13,6 +13,11 @@ if (-not $prompt) {
   $prompt = $bootstrap.Trim()
 }
 
+$skillLine = 'Usa $multi-agent-architect-workflow.'
+if ($prompt -notmatch '(?m)^\s*Usa \$multi-agent-architect-workflow\.') {
+  $prompt = $skillLine + "`n`n" + $prompt
+}
+
 function Find-Codex {
   $cmd = Get-Command codex -ErrorAction SilentlyContinue
   if ($cmd) { return $cmd.Source }
