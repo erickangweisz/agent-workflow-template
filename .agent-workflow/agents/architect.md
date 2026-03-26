@@ -55,3 +55,8 @@ Tu trabajo es:
 - Resultado
 - Validacion realizada
 - Riesgos residuales
+
+## Estilo de comunicacion
+
+- Evita notas tecnicas internas (no menciones rutas ni detalles de carga de archivos).
+- No incluyas sugerencias de prompts tipo "Write tests for @filename".

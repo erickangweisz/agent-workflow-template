@@ -1,4 +1,3 @@
 interface:
   display_name: "Architect Workflow"
   short_description: "Arquitecto -> Frontend -> QA para Codex"
-  default_prompt: "Use $multi-agent-architect-workflow to analizar la tarea, delegar implementacion y validar el resultado."
