@@ -56,6 +56,15 @@ if (-not (Test-Path $rootTasks)) {
   }
 }
 
+# Fix accidental nesting for agents/agents
+$nestedAgents = Join-Path $target 'agents\agents'
+if (Test-Path $nestedAgents) {
+  Get-ChildItem -Path $nestedAgents -File | ForEach-Object {
+    Move-Item -Force $_.FullName (Join-Path $target 'agents')
+  }
+  Remove-Item -Recurse -Force $nestedAgents
+}
+
 Write-Host ''
 Write-Host 'Plantilla multiagente copiada en:' -ForegroundColor Green
 Write-Host $target

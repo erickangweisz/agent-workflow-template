@@ -4,6 +4,17 @@ $projectRoot = (Get-Location).Path
 $bootstrapPath = Join-Path $projectRoot 'agents\bootstrap.md'
 
 if (-not (Test-Path $bootstrapPath)) {
+  $nestedBootstrap = Join-Path $projectRoot 'agents\agents\bootstrap.md'
+  if (Test-Path $nestedBootstrap) {
+    New-Item -ItemType Directory -Force (Join-Path $projectRoot 'agents') | Out-Null
+    Get-ChildItem -Path (Join-Path $projectRoot 'agents\agents') -File | ForEach-Object {
+      Move-Item -Force $_.FullName (Join-Path $projectRoot 'agents')
+    }
+    Remove-Item -Recurse -Force (Join-Path $projectRoot 'agents\agents')
+  }
+}
+
+if (-not (Test-Path $bootstrapPath)) {
   Write-Error "No se encuentra agents/bootstrap.md en $projectRoot"
 }
 
