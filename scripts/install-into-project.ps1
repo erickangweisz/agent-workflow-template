@@ -30,6 +30,15 @@ foreach ($dir in $dirs) {
 
 Copy-Item (Join-Path $sourceRoot 'README.md') (Join-Path $target 'AGENT_WORKFLOW_TEMPLATE.md') -Force
 
+# Fix accidental nesting if the script is run from the target or an existing bad state
+$nestedScripts = Join-Path $target 'scripts\scripts'
+if (Test-Path $nestedScripts) {
+  Get-ChildItem -Path $nestedScripts -File | ForEach-Object {
+    Move-Item -Force $_.FullName (Join-Path $target 'scripts')
+  }
+  Remove-Item -Recurse -Force $nestedScripts
+}
+
 Write-Host ''
 Write-Host 'Plantilla multiagente copiada en:' -ForegroundColor Green
 Write-Host $target
