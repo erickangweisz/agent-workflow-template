@@ -107,6 +107,8 @@ Esa task:
 - carga el bootstrap del Arquitecto
 - fuerza `gpt-5.4`
 
+Nota: el forzado de modelo solo aplica a la sesion de terminal abierta por la task. El panel lateral no puede garantizar modelo.
+
 Ademas, este repo ya incluye una primera skill de Codex en:
 
 - `codex-skills/multi-agent-architect-workflow/`
